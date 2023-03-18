@@ -1,32 +1,36 @@
-var timer = document.getElementById("timer");
-var secondsLeft = 90;
-var totalScore = 0;
-var questionCount = 1;
+// Variable declarations
+    var timer = document.getElementById("timer");
+    var secondsLeft = 90;
+    var questionCount = 1;
 
+    // declare variables for the various 'pages'
+    var totalScore = 0;
+    var questionPage = document.getElementById("questionpage");
+    var endingPage = document.getElementById("endingpage");
+    var highScorePage = document.getElementById("highscorepage");
+    var instructionPage = document.getElementById("instructionpage");
+    var displayQuestionPage = document.getElementById("display_question");
+    var endMessage = document.getElementById("end_message");
 
-var questionPage = document.getElementById("questionpage");
-var endingPage = document.getElementById("endingpage");
-var highScorePage = document.getElementById("highscorepage");
-var instructionPage = document.getElementById("instructionpage");
-var displayQuestionPage = document.getElementById("display_question");
-var endMessage = document.getElementById("end_message");
-var answerRightWrong = document.getElementById("check_answer");
+    // variables for inputs, outputs and stored totals
+    var answerRightWrong = document.getElementById("check_answer");
+    var finalScore = document.getElementById("finalscore");
+    var playerScore = document.getElementById("player_score");
+    var initials = document.getElementById("initials");
 
-var finalScore = document.getElementById("finalscore");
-var playerScore = document.getElementById("player_score");
-var initials = document.getElementById("initials");
-var startBtn = document.getElementById("startButton");
-var answerBtn1 = document.getElementById("answerBtn1");
-var answerBtn2 = document.getElementById("answerBtn2");
-var answerBtn3 = document.getElementById("answerBtn3");
-var answerBtn4 = document.getElementById("answerBtn4");
-var submitBtn = document.getElementById("submitBtn");
-var goBackBtn = document.getElementById("goBackBtn");
-var clearHighScoresBtn = document.getElementById("clearHighScoresBtn");
-var highScoresBtn = document.getElementById("viewhighscoresbtn");
-var answerButtons = document.querySelectorAll(".answers");
+    // variables for various buttons
+    var startBtn = document.getElementById("startButton");
+    var answerBtn1 = document.getElementById("answerBtn1");
+    var answerBtn2 = document.getElementById("answerBtn2");
+    var answerBtn3 = document.getElementById("answerBtn3");
+    var answerBtn4 = document.getElementById("answerBtn4");
+    var submitBtn = document.getElementById("submitBtn");
+    var goBackBtn = document.getElementById("goBackBtn");
+    var clearHighScoresBtn = document.getElementById("clearHighScoresBtn");
+    var highScoresBtn = document.getElementById("viewhighscoresbtn");
+    var answerButtons = document.querySelectorAll(".answers");
 
-//Questions
+//Question list variable and arrays
         var questionList = [
             {
                 question: "Question 1 : Javascript is an ________ language.",
@@ -70,47 +74,48 @@ var answerButtons = document.querySelectorAll(".answers");
             }
         ];
 
-        function countdown() {
+// function to countdown the timer 
+function countdown() {
             
-            var timerInterval = setInterval(function () {
+    var timerInterval = setInterval(function () {
     
-              secondsLeft--;
-              timer.textContent = "Time Left: " + secondsLeft + " s";
+        secondsLeft--;
+        timer.textContent = "Time Left: " + secondsLeft + " s";
         
-                if (secondsLeft <= 0){
-                    clearInterval(timerInterval);
-                    timer.textContent = "Time is up!"; 
-                    // if time is up, show on score board content instead of "all done!"
-                    endMessage.textContent = "Time is up!";
-                    gameEnd();
+        if (secondsLeft <= 0){
+                clearInterval(timerInterval);
+            timer.textContent = "Time is up!"; 
+            // if time is up, show on score board content instead of "all done!"
+            endMessage.textContent = "Time is up!";
+            gameEnd();
     
-                } else  if(questionCount >= questionList.length +1) {
-                    clearInterval(timerInterval);
-                    gameEnd();
-                    } 
-        }, 1000);
-    }
+        } else  if(questionCount >= questionList.length +1) {
+            clearInterval(timerInterval);
+            gameEnd();
+            } 
+    }, 1000);
+}
 
-        //Click the button to start the quiz
-        function startQuiz () {
-            instructionPage.style.display = "none";
-            questionPage.style.display = "block";
-            answerRightWrong.style.display = "none";
-            highScoresBtn.style.display = "none";
-            questionNumber = 0
-            countdown();
-            displayQuestion(questionNumber);
-          
-    }
-        //present the questions and answers
-        function displayQuestion (n) {
-            displayQuestionPage.textContent = questionList[n].question;
-            answerBtn1.textContent = questionList[n].choices[0];
-            answerBtn2.textContent = questionList[n].choices[1];
-            answerBtn3.textContent = questionList[n].choices[2];
-            answerBtn4.textContent = questionList[n].choices[3];
-            questionNumber = n;
-        }
+// function to start the quiz, only displaying questions
+function startQuiz () {
+    instructionPage.style.display = "none";
+    questionPage.style.display = "block";
+    answerRightWrong.style.display = "none";
+    highScoresBtn.style.display = "none";
+    questionNumber = 0
+    countdown();
+    displayQuestion(questionNumber);
+}
+
+// function to display each question and answer choices
+function displayQuestion (n) {
+    displayQuestionPage.textContent = questionList[n].question;
+    answerBtn1.textContent = questionList[n].choices[0];
+    answerBtn2.textContent = questionList[n].choices[1];
+    answerBtn3.textContent = questionList[n].choices[2];
+    answerBtn4.textContent = questionList[n].choices[3];
+    questionNumber = n;
+}
 
         //WHEN I answer a question,Show if answer is correct or incorrect 
         function checkAnswer(event) {
@@ -119,7 +124,7 @@ var answerButtons = document.querySelectorAll(".answers");
             answerRightWrong.style.display = "block";
             setTimeout(function () {
                 answerRightWrong.style.display = 'none';
-            }, 1000);
+            }, 3000);
         
             // answer check
             if (questionList[questionNumber].answer == event.target.value) {
