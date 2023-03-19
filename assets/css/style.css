@@ -63,3 +63,14 @@ ul {
 .questionpage, .endingpage, .highscorepage {
     display:none;
 }
+
+@media screen and (max-width: 390px) {
+main {
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    text-align: center;
+    margin-left: 5px;
+    margin-right: 5px;
+    }
+}

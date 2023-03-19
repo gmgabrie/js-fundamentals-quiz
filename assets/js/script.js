@@ -1,6 +1,6 @@
 // Variable declarations
     var timer = document.getElementById("timer");
-    var secondsLeft = 90;
+    var secondsLeft = 60;
     var questionCount = 1;
 
     // declare variables for the various 'pages'
@@ -117,62 +117,61 @@ function displayQuestion (n) {
     questionNumber = n;
 }
 
-        //WHEN I answer a question,Show if answer is correct or incorrect 
-        function checkAnswer(event) {
-            event.preventDefault();
-            //make it display
-            answerRightWrong.style.display = "block";
-            setTimeout(function () {
-                answerRightWrong.style.display = 'none';
-            }, 3000);
+//WHEN I answer a question,Show if answer is correct or incorrect 
+function checkAnswer(event) {
+    event.preventDefault();
+            
+//make it display
+    answerRightWrong.style.display = "block";
+    setTimeout(function () {
+        answerRightWrong.style.display = 'none';
+    }, 3000);
         
-            // answer check
-            if (questionList[questionNumber].answer == event.target.value) {
-                answerRightWrong.textContent = "Correct!"; 
-                totalScore = totalScore + 1;
+    // answer check
+    if (questionList[questionNumber].answer == event.target.value) {
+        answerRightWrong.textContent = "Correct!"; 
+        totalScore = totalScore + 1;
         
-            } else {
-                secondsLeft = secondsLeft - 10;
-                answerRightWrong.textContent = "Wrong! The correct answer is " + questionList[questionNumber].answer + " .";
-            }
-                 //THEN I am presented with another question
-            if (questionNumber < questionList.length -1 ) {
-            // call showQuestions to bring in next question when any reactBtn is clicked
-                displayQuestion(questionNumber +1);
-            } else {
-            gameEnd();
-        }
-        questionCount++;
-        }
+    } else {
+        secondsLeft = secondsLeft - 10;
+        answerRightWrong.textContent = "Wrong! The correct answer is " + questionList[questionNumber].answer + " .";
+    }
+        //THEN I am presented with another question
+    if (questionNumber < questionList.length -1 ) {
+    // call showQuestions to bring in next question when any reactBtn is clicked
+        displayQuestion(questionNumber +1);
+     } else {
+    gameEnd();
+}
+    questionCount++;
+    }
 
 //When times runs out or all questions are answered the game is over
-    function gameEnd() {
-    
-        questionPage.style.display = "none";
-        instructionPage.style.display = "none";
-        endingPage.style.display = "block";
-        // show final score
-        finalScore.textContent = "Your final score is :" + totalScore ;
-        // clearInterval(timerInterval);  
-        // timer.style.display = "none"; 
+function gameEnd() {
+    questionPage.style.display = "none";
+    instructionPage.style.display = "none";
+    endingPage.style.display = "block";
+    // show final score
+    finalScore.textContent = "Your final score is :" + totalScore ;
 };
 
-    // get current score and initials from local storage
-    function getScore () {
-        var currentList =localStorage.getItem("ScoreList");
-        if (currentList !== null ){
-            freshList = JSON.parse(currentList);
-            return freshList;
-        } else {
-            freshList = [];
-        }
-        return freshList;
-    };
+// get current score and initials from local storage
+function getScore () {
+    var currentList =localStorage.getItem("ScoreList");
+    if (currentList !== null ){
+        parsedList = JSON.parse(currentList);
+        return parsedList;
+    } else {
+        parsedList = [];
+    }
+    return parsedList;
+};
 
 //Display player score 
 function displayScore() {
     var li = document.createElement("li");
     playerScore.innerHTML = "";
+
     // playerScore.style.display = "block";
     var highScores = sort();
     
@@ -186,38 +185,39 @@ function displayScore() {
         playerScore.appendChild(li);
         }
 };
-
-    // sort score and ranking the highscore list
-    function sort () {
-        var unsortedList = getScore();
-        if (getScore == null ){
-            return;
-        } else{
-        unsortedList.sort(function(a,b){
-            return b.score - a.score;
-        })
-        return unsortedList;
+ 
+// sort score and ranking the highscore list
+function sort () {
+    var unsortedList = getScore();
+    if (getScore == null ){
+        return;
+    } else{
+    unsortedList.sort(function(a,b){
+        return b.score - a.score;
+    })
+    return unsortedList;
     }
 };
 
-    // push new score and initial to the local storage
-    function addItem (n) {
-        var addedList = getScore();
-        addedList.push(n);
-        localStorage.setItem("ScoreList", JSON.stringify(addedList));
-    };
+// push new score and initial to the local storage
+function addItem (n) {
+    var addedList = getScore();
+    addedList.push(n);
+    localStorage.setItem("ScoreList", JSON.stringify(addedList));
+};
     
-    function saveScore () {
-        var scoreItem ={
-            user: initials.value,
-            score: totalScore
-        }
-        addItem(scoreItem);
-        displayScore();
+function saveScore () {
+    var scoreItem ={
+        user: initials.value,
+        score: totalScore
     }
+    addItem(scoreItem);
+    displayScore();
+}
 
 /* Add event listeners*/
-    // startbtn to start the quiz
+
+// startbtn to start the quiz
 startBtn.addEventListener("click", startQuiz);
 
 //check each answer and advance to next question
@@ -225,39 +225,39 @@ answerButtons.forEach(function(click) {
     click.addEventListener("click", checkAnswer);
 });
 
-    //save information and go to next page
-    submitBtn.addEventListener("click", function(event) {
-        event.preventDefault();
-        endingPage.style.display = "none";
-        instructionPage.style.display = "none";
-        highScorePage.style.display = "block";
-        displayQuestionPage.style.display ="none";
-        saveScore();
-    });
+//save information and go to next page
+submitBtn.addEventListener("click", function(event) {
+    event.preventDefault();
+    endingPage.style.display = "none";
+    instructionPage.style.display = "none";
+    highScorePage.style.display = "block";
+    displayQuestionPage.style.display ="none";
+    saveScore();
+});
 
-    // check highscore ranking list
-    highScoresBtn.addEventListener("click", function(event) {
-        event.preventDefault();
-        endingPage.style.display = "none";
-        instructionPage.style.display = "none";
-        highScorePage.style.display = "block";
-        questionPage.style.display ="none";
-        displayScore();
-    });
+// check highscore ranking list
+highScoresBtn.addEventListener("click", function(event) {
+    event.preventDefault();
+    endingPage.style.display = "none";
+    instructionPage.style.display = "none";
+    highScorePage.style.display = "block";
+    questionPage.style.display ="none";
+    displayScore();
+});
 
 //go back to instruction screen
-        goBackBtn.addEventListener("click", function(event) {
-            event.preventDefault();
-            endingPage.style.display = "none";
-            instructionPage.style.display = "block";
-            highScorePage.style.display = "none";
-            questionPage.style.display ="none";
-            location.reload();
-        });
+goBackBtn.addEventListener("click", function(event) {
+    event.preventDefault();
+    endingPage.style.display = "none";
+    instructionPage.style.display = "block";
+    highScorePage.style.display = "none";
+    questionPage.style.display ="none";
+    location.reload();
+});
 
-    //clear local storage and clear page shows
-    clearHighScoresBtn.addEventListener("click",function(event) {
-        event.preventDefault();
-        localStorage.clear();
-        displayScore();
-    });
+//clear local storage and clear page shows
+clearHighScoresBtn.addEventListener("click",function(event) {
+    event.preventDefault();
+    localStorage.clear();
+    displayScore();
+});
