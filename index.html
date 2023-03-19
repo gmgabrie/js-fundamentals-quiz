@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Quiz!</title>
+    <!-- link to css style sheet -->
+    <link rel="stylesheet" href="./js-fundamentals-quiz/assets/css/style.css">
+</head>
+<body>
+    <header class="header">
+        <!-- Button in upper left to view high scores -->
+        <div>
+            <button id="viewhighscoresbtn">View Highscores</button>
+        </div>
+        <!-- Timer in upper right corner -->
+        <div id="timer">Time Left: 60 s</div>
+    </header>
+
+    <main>
+        <!-- Instruction Page -->
+        <section id="instructionpage">
+            <h1>Coding Quiz Challenge</h1>
+            <p>Try to answer the following code-related questions within the time limit.  Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
+            <button id="startButton">Start Quiz</button>
+        </section>
+        <!-- Questions -->
+        <section class="questionpage" id="questionpage">
+            <h2 id="display_question">Display question</h2>
+            <ul>
+                <li><button class="answers" id="answerBtn1" value="a">Answer1</button></li>
+                <li><button class="answers" id="answerBtn2" value="b">Answer2</button></li>
+                <li><button class="answers" id="answerBtn3" value="c">Answer3</button></li>
+                <li><button class="answers" id="answerBtn4" value="d">Answer4</button></li>
+            </ul>
+            <p id="check_answer">Correct or Incorrect</p>
+        </section>
+        <!-- Ending Page -->
+        <section class="endingpage" id="endingpage">
+            <h2 id="end_message">Quiz Complete!</h2>
+            <p id="finalscore">Your final score is: </p>
+            <p>Enter initials:</p>
+            <input id="initials"><br><br>
+            <button id="submitBtn">Submit</button>
+        </section>
+        <!-- High Score Page -->
+        <section class="highscorepage" id="highscorepage">
+            <h2>High Scores</h2>
+            <div id="player_score"><p>Your Scores</p></div><br><br>
+            <div>
+                <button id="goBackBtn">Go back</button>
+                <button id="clearHighScoresBtn">Clear Highscores</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- link to javascript file -->
+    <script src ="./js-fundamentals-quiz/assets/js/script.js"></script>
+</body>
+</html>
