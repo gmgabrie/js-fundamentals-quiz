@@ -22,17 +22,17 @@
         <!-- Instruction Page -->
         <section id="instructionpage">
             <h1>Coding Quiz Challenge</h1>
-            <p>Try to answer the following code-related questions within the time limit.  Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
+            <p id="instructions">Try to answer the following code-related questions within the time limit.  Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
             <button id="startButton">Start Quiz</button>
         </section>
         <!-- Questions -->
         <section class="questionpage" id="questionpage">
             <h2 id="display_question">Display question</h2>
             <ul>
-                <li><button class="answers" id="answerBtn1" value="a">Answer1</button></li>
-                <li><button class="answers" id="answerBtn2" value="b">Answer2</button></li>
-                <li><button class="answers" id="answerBtn3" value="c">Answer3</button></li>
-                <li><button class="answers" id="answerBtn4" value="d">Answer4</button></li>
+                <li><button class="answers" id="answerBtn1" value="A">Answer1</button></li>
+                <li><button class="answers" id="answerBtn2" value="B">Answer2</button></li>
+                <li><button class="answers" id="answerBtn3" value="C">Answer3</button></li>
+                <li><button class="answers" id="answerBtn4" value="D">Answer4</button></li>
             </ul>
             <p id="check_answer">Correct or Incorrect</p>
         </section>
@@ -40,7 +40,7 @@
         <section class="endingpage" id="endingpage">
             <h2 id="end_message">Quiz Complete!</h2>
             <p id="finalscore">Your final score is: </p>
-            <p>Enter initials:</p>
+            <p id="enterinitials">Enter initials:</p>
             <input id="initials"><br><br>
             <button id="submitBtn">Submit</button>
         </section>

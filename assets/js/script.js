@@ -34,43 +34,43 @@
         var questionList = [
             {
                 question: "Question 1:  Javascript is an ________ language.",
-                choices: ["a. Object-oriented", "b. Object-based", "c. Procedural", "d. None of the above"],
-                answer: "a"
+                choices: ["A. Object-oriented", "B. Object-based", "C. Procedural", "D. None of the above"],
+                answer: "A"
             },
             {
                 question: "Question 2:  Which of the following keywords is used to define a variable in Javascript?",
-                choices: ["a. var", "b. let", "c. Both A and B", "d. None of the above"],
-                answer: "c"
+                choices: ["A. var", "B. let", "C. Both A and B", "D. None of the above"],
+                answer: "C"
             },
             {
                 question: "Question 3:  Which of the following methods is used to access HTML elements using Javascript?",
-                choices: ["a. getElementbyId()", "b. getElementsByClassName()", "c. Both A and B", "d. None of the above"],
-                answer: "c"
+                choices: ["A. getElementbyId()", "B. getElementsByClassName()", "C. Both A and B", "D. None of the above"],
+                answer: "C"
             },
             {
                 question: "Question 4:  Which of the following methods can be used to display data in some form using Javascript?",
-                choices: ["a. document.write()", "b. console.log()", "c. window.alert()", "d. All of the above"],
-                answer: "d"
+                choices: ["A. document.write()", "B. console.log()", "C. window.alert()", "D. All of the above"],
+                answer: "D"
             },
             {
                 question: "Question 5:  How can a datatype be declared to be a constant type?",
-                choices: ["a. const", "b. var", "c. let", "d. constant"],
-                answer: "a"
+                choices: ["A. const", "B. var", "C. let", "D. constant"],
+                answer: "A"
             },
             {
                 question: "Question 6:  Which function is used to serialize an object into a JSON string?",
-                choices: ["a. stringify()", "b. parse()", "c. convert()", "d. None of the above"],
-                answer: "a"
+                choices: ["A. stringify()", "B. parse()", "C. convert()", "D. None of the above"],
+                answer: "A"
             },
             {
                 question: "Question 7:  Which of the following is not a Javascript framework?",
-                choices: ["a. Node", "b. Vue", "c. React", "d. Cassandra"],
-                answer: "a"
+                choices: ["A. Node", "B. Vue", "C. React", "D. Cassandra"],
+                answer: "A"
             },
             {
                 question: "Question 8:  What keyword is used to check whether a given property is valid or not?",
-                choices: ["a. in", "b. is in", "c. exists", "d. lies"],
-                answer: "a"
+                choices: ["A. in", "B. is in", "C. exists", "D. lies"],
+                answer: "A"
             }
         ];
 
@@ -125,7 +125,7 @@ function checkAnswer(event) {
     answerRightWrong.style.display = "block";
     setTimeout(function () {
         answerRightWrong.style.display = 'none';
-    }, 3000);
+    }, 2000);
         
     // answer check
     if (questionList[questionNumber].answer == event.target.value) {

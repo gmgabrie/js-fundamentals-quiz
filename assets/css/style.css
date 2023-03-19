@@ -52,6 +52,10 @@ button:hover {
     font-size:large;
 }
 
+#check_answer, #timer, #instructions, #player_score, #finalscore, #enterinitials{
+    font-size: 16pt;
+}
+
 /* list display properties */
 ul {
     list-style-type: none;
