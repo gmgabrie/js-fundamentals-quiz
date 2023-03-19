@@ -8,9 +8,9 @@ This is a web application that provides a quiz with questions related to Javascr
 
 ## Usage
 
-Application link:  xxxxxx
+Application link:  https://gmgabrie.github.io/js-fundamentals-quiz/
 
-xxxxxx
+Screenshots:
 
 ![code quiz screenshot1](./assets/images/codequizscreenshot.png)
 
@@ -18,8 +18,16 @@ xxxxxx
 
 ## Credits
 
-xxxxx
+I utilized several external sources to help with development of this application.  These include:
+- prior coding bootcamp lessons
+- codepen.io
+- W3 Schools
+- MDN Web Docs
 
 ## Features
 
-xxxxxxxxx
+- Buttons with hover effects
+- Dynamically displaying/hiding text/buttons
+- Storing/retrieving of high scores using local storage
+- timer that counts down and changes dynamically with incorrect answers
+- ability to clear high scores stored in local storage

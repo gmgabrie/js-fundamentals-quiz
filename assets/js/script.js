@@ -33,42 +33,42 @@
 //Question list variable and arrays
         var questionList = [
             {
-                question: "Question 1 : Javascript is an ________ language.",
+                question: "Question 1:  Javascript is an ________ language.",
                 choices: ["a. Object-oriented", "b. Object-based", "c. Procedural", "d. None of the above"],
                 answer: "a"
             },
             {
-                question: "Question 2 : Which of the following keywords is used to define a variable in Javascript?",
+                question: "Question 2:  Which of the following keywords is used to define a variable in Javascript?",
                 choices: ["a. var", "b. let", "c. Both A and B", "d. None of the above"],
                 answer: "c"
             },
             {
-                question: "Question 3 : Which of the following methods is used to access HTML elements using Javascript?",
+                question: "Question 3:  Which of the following methods is used to access HTML elements using Javascript?",
                 choices: ["a. getElementbyId()", "b. getElementsByClassName()", "c. Both A and B", "d. None of the above"],
                 answer: "c"
             },
             {
-                question: "Question 4 : Which of the following methods can be used to display data in some form using Javascript?",
+                question: "Question 4:  Which of the following methods can be used to display data in some form using Javascript?",
                 choices: ["a. document.write()", "b. console.log()", "c. window.alert()", "d. All of the above"],
                 answer: "d"
             },
             {
-                question: "Question 5 : How can a datatype be declared to be a constant type?",
+                question: "Question 5:  How can a datatype be declared to be a constant type?",
                 choices: ["a. const", "b. var", "c. let", "d. constant"],
                 answer: "a"
             },
             {
-                question: "Question 6 : Which function is used to serialize an object into a JSON string?",
+                question: "Question 6:  Which function is used to serialize an object into a JSON string?",
                 choices: ["a. stringify()", "b. parse()", "c. convert()", "d. None of the above"],
                 answer: "a"
             },
             {
-                question: "Question 7 : Which of the following is not a Javascript framework?",
+                question: "Question 7:  Which of the following is not a Javascript framework?",
                 choices: ["a. Node", "b. Vue", "c. React", "d. Cassandra"],
                 answer: "a"
             },
             {
-                question: "Question 8 : What keyword is used to check whether a given property is valid or not?",
+                question: "Question 8:  What keyword is used to check whether a given property is valid or not?",
                 choices: ["a. in", "b. is in", "c. exists", "d. lies"],
                 answer: "a"
             }
